@@ -167,6 +167,8 @@ return [
          * Package Service Providers...
          */
         Laravel\Tinker\TinkerServiceProvider::class,
+        // Package Service Providers
+        TCG\Voyager\VoyagerServiceProvider::class,
 
         /*
          * Application Service Providers...
