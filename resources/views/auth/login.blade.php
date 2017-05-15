@@ -53,14 +53,24 @@
                                 <button type="submit" class="btn btn-primary">
                                     Login
                                 </button>
-
                                 <a class="btn btn-link" href="{{ route('password.request') }}">
                                     Forgot Your Password?
                                 </a>
-                                <a href="{!! route('redirect', 'facebook') !!}">FB Login</a>
-                                <a href="{!! route('redirect', 'twitter') !!}">Twitter Login</a>
-                                <a href="{!! route('redirect', 'google') !!}">Google Login</a>
+                            </div>
+                        </div>
 
+                        <div class="form-group">
+                            <div class="col-md-8 col-md-8 col-md-offset-4">  
+                                <p>
+                                    <a href="{!! route('redirect', 'facebook') !!}" type="button" class="btn btn-default" style="padding:10px 20px;width: 230px">Loging with Facebook</a>
+                                </p>
+                                <p>
+                                    <a href="{!! route('redirect', 'twitter') !!}" type="button" class="btn btn-default" style="padding:10px 20px;width: 230px">Login with Twitter
+                                    </a>
+                                </p>
+                                <p>
+                                    <a href="{!! route('redirect', 'google') !!}" type="button" class="btn btn-default" style="padding:10px 20px;width: 230px">Login with Google</a>
+                                </p>
                             </div>
                         </div>
                     </form>

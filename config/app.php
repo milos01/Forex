@@ -170,6 +170,7 @@ return [
         // Package Service Providers
         TCG\Voyager\VoyagerServiceProvider::class,
         Laravel\Socialite\SocialiteServiceProvider::class,
+        Anhskohbo\NoCaptcha\NoCaptchaServiceProvider::class,
 
         /*
          * Application Service Providers...
