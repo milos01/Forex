@@ -18,8 +18,8 @@ Route::get('/', function () {
 
 //Auth routes
 Auth::routes();
-Route::get('/redirect', 'SocialAuthController@redirect')->name('redirect');
-Route::get('/callback', 'SocialAuthController@callback')->name('callback');
+Route::get('/redirect/{provider}', 'SocialAuthController@redirect')->name('redirect');
+Route::get('/callback/{provider}', 'SocialAuthController@callback')->name('callback');
 
 Route::group(['middleware' => ['auth']], function () {
 	Route::get('/home', 'HomeController@index')->name('home');
