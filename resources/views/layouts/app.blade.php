@@ -77,6 +77,16 @@
                 </div>
             </div>
         </nav>
+        @if (session('mailInfo'))
+            <div class="alert alert-success" style="border-radius: 0px; margin-top: -22px">
+                {{ session('mailInfo') }}
+            </div>
+        @endif
+        @if (Auth::check() && !Auth::user()->activated)
+            <div class="alert alert-danger" style="border-radius: 0px; margin-top: -22px">
+                Please activate your account!
+            </div>
+        @endif
 
         @yield('content')
     </div>

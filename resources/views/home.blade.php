@@ -8,7 +8,7 @@
                 <div class="panel-heading">Dashboard</div>
 
                 <div class="panel-body">
-                    You are logged in!
+                    List all blogs, signals, lessions and packeges based on my sybscribtions
                 </div>
             </div>
         </div>

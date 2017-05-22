@@ -22,6 +22,19 @@ class ActivationService
         $this->activationRepo = $activationRepo;
     }
 
+    public function sendReminderMail($user){
+        if ($user->activated) {
+            return;
+        }
+
+        $token = $this->activationRepo->createActivation($user);
+        $link = route('user.activate', $token);
+
+        $this->mailer->send('templates.mail.userActivationReminderMail', ['link' => $link], function (Message $m) use ($user) {
+            $m->to($user->email)->subject("Activate your account!");
+        });
+    }
+
     public function sendActivationMail($user)
     {
 
@@ -30,9 +43,7 @@ class ActivationService
         }
 
         $token = $this->activationRepo->createActivation($user);
-
         $link = route('user.activate', $token);
-        $message = sprintf('Activate account <a href="%s">%s</a>', $link, $link);
 
         $this->mailer->send('templates.mail.userActivationMail', ['link' => $link], function (Message $m) use ($user) {
             $m->to($user->email)->subject($user->first_name.' '.$user->last_name);

@@ -20,7 +20,7 @@ Route::get('/', function () {
 Auth::routes();
 Route::get('/redirect/{provider}', 'SocialAuthController@redirect')->name('redirect');
 Route::get('/callback/{provider}', 'SocialAuthController@callback')->name('callback');
-Route::get('user/activation/{token}', 'RegisterController@activateUser')->name('user.activate');
+Route::get('user/activation/{token}', 'ActivateRegisterController@activateUser')->name('user.activate');
 
 Route::group(['middleware' => ['auth']], function () {
 	Route::get('/home', 'HomeController@index')->name('home');

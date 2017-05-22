@@ -58,15 +58,7 @@ class RegisterController extends Controller
         $user = $this->create($request->all());
         $this->activationService->sendActivationMail($user);
         auth()->login($user);
-        return redirect('/home');
-    }
-
-    public function activateUser($token){
-        if ($user = $this->activationService->activateUser($token)) {
-            auth()->login($user);
-            return redirect($this->redirectPath());
-        }
-        abort(404);
+        return redirect('/home')->with('mailInfo', 'Activation mail has been sent to your email address.');
     }
 
     /**
@@ -104,6 +96,7 @@ class RegisterController extends Controller
             'role_id' => 2,
             'country' => $data['country'],
             'password' => bcrypt($data['password']),
+            'trial_ends_at' => $this->now->addDays(15),
         ]);
     }
 }

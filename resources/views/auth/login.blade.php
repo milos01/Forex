@@ -7,6 +7,20 @@
             <div class="panel panel-default">
                 <div class="panel-heading">Login</div>
                 <div class="panel-body">
+                    <div class="form-group">
+                            <div class="col-md-8 col-md-8 col-md-offset-4">  
+                                <p>
+                                    <a href="{!! route('redirect', 'facebook') !!}" type="button" class="btn btn-default" style="color:#fff; background: #4267b2; border-color:#4267b2; padding:10px 20px;width: 230px;">Loging with Facebook</a>
+                                </p>
+                                <p>
+                                    <a href="{!! route('redirect', 'twitter') !!}" type="button" class="btn btn-default" style="color:#fff; background: #1ab7ea; border-color:#1ab7ea; padding:10px 20px;width: 230px;">Login with Twitter
+                                    </a>
+                                </p>
+                                <p>
+                                    <a href="{!! route('redirect', 'google') !!}" type="button" class="btn btn-default" style="color:#fff; background: #cf4332; border-color:#cf4332; padding:10px 20px;width: 230px;">Login with Google</a>
+                                </p>
+                            </div>
+                        </div>
                     <form class="form-horizontal" role="form" method="POST" action="{{ route('login') }}">
                         {{ csrf_field() }}
 
@@ -56,21 +70,6 @@
                                 <a class="btn btn-link" href="{{ route('password.request') }}">
                                     Forgot Your Password?
                                 </a>
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <div class="col-md-8 col-md-8 col-md-offset-4">  
-                                <p>
-                                    <a href="{!! route('redirect', 'facebook') !!}" type="button" class="btn btn-default" style="padding:10px 20px;width: 230px">Loging with Facebook</a>
-                                </p>
-                                <p>
-                                    <a href="{!! route('redirect', 'twitter') !!}" type="button" class="btn btn-default" style="padding:10px 20px;width: 230px">Login with Twitter
-                                    </a>
-                                </p>
-                                <p>
-                                    <a href="{!! route('redirect', 'google') !!}" type="button" class="btn btn-default" style="padding:10px 20px;width: 230px">Login with Google</a>
-                                </p>
                             </div>
                         </div>
                     </form>
