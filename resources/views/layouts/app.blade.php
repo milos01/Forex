@@ -10,8 +10,13 @@
 
     <title>{{ config('app.name', 'Laravel') }}</title>
 
+
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <!-- Bowers styles -->
+    <link href="/bower_components/summernote/dist/summernote.css" rel="stylesheet">
 
     <!-- Scripts -->
     <script>
@@ -20,7 +25,7 @@
         ]) !!};
     </script>
 </head>
-<body>
+<body ng-app="forexApp">
     <div id="app">
         <nav class="navbar navbar-default navbar-static-top">
             <div class="container">
@@ -44,8 +49,11 @@
                     <!-- Left Side Of Navbar -->
                     <ul class="nav navbar-nav">
                         &nbsp;
+                        @if (Auth::check() && Auth::user()->hasRole('admin'))
+                            <li><a href="{!! route('newItemPage') !!}">Add new item</a></li>
+                        @endif
+                        <li><a href="{!! route('packegesPage') !!}">Packeges</a></li>
                     </ul>
-
                     <!-- Right Side Of Navbar -->
                     <ul class="nav navbar-nav navbar-right">
                         <!-- Authentication Links -->
@@ -53,6 +61,7 @@
                             <li><a href="{{ route('login') }}">Login</a></li>
                             <li><a href="{{ route('register') }}">Register</a></li>
                         @else
+
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
                                     {{ Auth::user()->first_name .' '. Auth::user()->last_name }} <span class="caret"></span>
@@ -91,7 +100,19 @@
         @yield('content')
     </div>
 
+    <!-- Bower dependencies -->
+    <script type="text/javascript" src="/bower_components/jquery/dist/jquery.min.js"></script>
+    <script type="text/javascript" src="/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+
+    <script type="text/javascript" src="/bower_components/summernote/dist/summernote.js"></script>
+   
+    <script type="text/javascript" src="/bower_components/angular/angular.js"></script> 
+    <script type="text/javascript" src="/bower_components/angular-summernote/src/angular-summernote.js"></script>
+    
     <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}"></script>
+    <!-- <script src="{{ asset('js/app.js') }}"></script> -->
+    <script src="{{ asset('/js/app/app.js') }}"></script>
+    
+
 </body>
 </html>

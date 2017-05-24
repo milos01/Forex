@@ -23,7 +23,14 @@ Route::get('/callback/{provider}', 'SocialAuthController@callback')->name('callb
 Route::get('user/activation/{token}', 'ActivateRegisterController@activateUser')->name('user.activate');
 
 Route::group(['middleware' => ['auth']], function () {
-	Route::get('/home', 'HomeController@index')->name('home');
+
+	//Page routes
+	Route::get('/home', 'PageController@index')->name('homePage');
+	Route::get('/newItem', 'PageController@showNweItemPage')->name('newItemPage');
+	Route::get('/packages', 'PageController@showPackagesPage')->name('packegesPage');
+
+	//BlogPost routes
+	
 });
 
 Route::group(['prefix' => 'admin'], function () {

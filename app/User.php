@@ -28,4 +28,16 @@ class User extends Authenticatable
     ];
 
     protected $dates = ['trial_ends_at'];
+
+    public function hasRole($role){
+        if($this->role->name == $role){
+            return true;
+        }
+        return false;
+    }
+
+    public function role()
+    {
+        return $this->belongsTo('App\Role');
+    }
 }
