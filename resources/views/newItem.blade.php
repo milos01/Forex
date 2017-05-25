@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
+<div class="container" ng-controller="newItemController as vm">
     <div class="row">
         <div class="col-md-10 col-md-offset-1">
             <div class="panel panel-default">
@@ -17,15 +17,15 @@
                                         <div class="tab-content">
                                             <div id="tab-1" class="tab-pane active">
                                                 <div class="panel-body">
-
+                                                <form name="addNewItemForm" ng-submit="vm.addNewItemFormSubmit()">
                                                     <fieldset class="form-horizontal">
                                                         <div class="form-group"><label class="col-sm-2 control-label">Title:</label>
-                                                            <div class="col-sm-10"><input type="text" class="form-control" placeholder="Blog title"></div>
+                                                            <div class="col-sm-10"><input type="text" class="form-control" placeholder="Blog title" ng-model="vm.title" required></div>
                                                         </div>
                                                         
                                                         <div class="form-group"><label class="col-sm-2 control-label">Content:</label>
-                                                            <div class="col-sm-10" ng-controller="summernoteController">
-                                                                <summernote config="options" ng-model="text"></summernote>
+                                                            <div class="col-sm-10">
+                                                                <summernote config="options" ng-model="vm.text" required></summernote>
                                                                 <!-- <summernote>
                                                                     <h3>Lorem Ipsum is simply</h3>
                                                                     dummy text of the printing and typesetting industry. <strong>Lorem Ipsum has been the industry's</strong> standard dummy text ever since the 1500s,
@@ -39,7 +39,7 @@
                                                         </div>
                                                         <div class="form-group"><label class="col-sm-2 control-label">Category:</label>
                                                             <div class="col-sm-10">
-                                                                <select class="form-control" id="sel1">
+                                                                <select class="form-control" id="sel1" ng-model="vm.category">
                                                                     <option>Blog</option>
                                                                     <option>Signal</option>
                                                                     <option>Lesion</option>
@@ -49,10 +49,11 @@
                                                         
                                                         
                                                         <div class="form-group"><label class="col-sm-2 control-label">Tag Keywords:</label>
-                                                            <div class="col-sm-10"><input type="text" class="form-control" placeholder="Lorem, Ipsum, has, been"></div>
+                                                            <div class="col-sm-10"><input type="text" class="form-control" placeholder="Lorem, Ipsum, has, been" ng-model="vm.tags" required></div>
                                                         </div>
+                                                        <button class="btn btn-primary pull-right" type="submit">Add item</button>
                                                     </fieldset>
-
+                                                </form>
                                                 </div>
                                             </div>
                                             <div id="tab-2" class="tab-pane">

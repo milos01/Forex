@@ -52,7 +52,9 @@
                         @if (Auth::check() && Auth::user()->hasRole('admin'))
                             <li><a href="{!! route('newItemPage') !!}">Add new item</a></li>
                         @endif
-                        <li><a href="{!! route('packegesPage') !!}">Packeges</a></li>
+                        @if (!Auth::guest())
+                            <li><a href="{!! route('packegesPage') !!}">Packeges</a></li>
+                        @endif
                     </ul>
                     <!-- Right Side Of Navbar -->
                     <ul class="nav navbar-nav navbar-right">
@@ -64,7 +66,7 @@
 
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                                    {{ Auth::user()->first_name .' '. Auth::user()->last_name }} <span class="caret"></span>
+                                    {{ Auth::user()->first_name}} <span class="caret"></span>
                                 </a>
 
                                 <ul class="dropdown-menu" role="menu">
@@ -108,10 +110,15 @@
    
     <script type="text/javascript" src="/bower_components/angular/angular.js"></script> 
     <script type="text/javascript" src="/bower_components/angular-summernote/src/angular-summernote.js"></script>
+    <script type="text/javascript" src="https://code.angularjs.org/1.6.4/angular-sanitize.min.js"></script>
+    <script type="text/javascript" src="/bower_components/lodash/lodash.js"></script>
+    <script type="text/javascript" src="/bower_components/restangular/dist/restangular.min.js"></script>
     
     <!-- Scripts -->
     <!-- <script src="{{ asset('js/app.js') }}"></script> -->
     <script src="{{ asset('/js/app/app.js') }}"></script>
+    <script src="{{ asset('/js/app/controllers/newItemController.js') }}"></script>
+    <script src="{{ asset('/js/app/controllers/newItemResources.js') }}"></script>
     
 
 </body>

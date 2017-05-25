@@ -15,7 +15,7 @@
                     Sorry, an error has occured, Requested page not found!
                 </div>
                 <div class="error-actions">
-                    <a href="{!! route('home') !!}" class="btn btn-default btn-lg"><span class="glyphicon glyphicon-envelope"></span> Take me home </a>
+                    <a href="{!! route('homePage') !!}" class="btn btn-default btn-lg"><span class="glyphicon glyphicon-envelope"></span> Take me home </a>
                 </div>
             </div>
         </div>

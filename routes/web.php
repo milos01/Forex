@@ -30,7 +30,7 @@ Route::group(['middleware' => ['auth']], function () {
 	Route::get('/packages', 'PageController@showPackagesPage')->name('packegesPage');
 
 	//BlogPost routes
-	
+	Route::post('/api/blog', 'BlogPostController@addNewItem');
 });
 
 Route::group(['prefix' => 'admin'], function () {
